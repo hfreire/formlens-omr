@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+<p>
+Classes to handle the <em>Tagged Image File Format</em> (TIFF).
+See <a href="TIFFCodec.html">the TIFFCodec documentation</a> for the
+amount of support that is built into this package.
+</p>
+
+<h2>Package Specification</h2>
+
+<p>
+The most important class is TIFFCodec, extending the base class for image codecs, ImageCodec.
+TIFFCodec reads the TIFF header, then the image file directory of the image to be loaded
+(TIFF can store more than one image in a file).
+The information of an image file directory is put into an object of class
+TIFFImageFileDirectory.
+It contains the <em>tags</em> of that directory (each tag is of type TIFFTag),
+and the most important information of a directory can also be retrieved from the
+various get methods (e.g. getCompression).
+TIFF files can be stored using all kinds of compression methods.
+When reading TIFFs, each supported compression method gets its own
+class extending TIFFDecoder, which provides basic methods required by all
+decoders (like storing decompressed data).
+A TIFFCodec object that is supposed to read an image creates an appropriate TIFFDecoder
+(e.g. TIFFDecoderUncompressed for compression type <code>1</code>, <em>no compression</em>)
+for each strip or tile and lets them do the image loading.
+</p>
+
+<!-- Put @see and @since tags down here. -->
+
+</body>
+</html>

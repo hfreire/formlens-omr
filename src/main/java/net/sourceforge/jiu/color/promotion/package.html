@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+<p>
+Classes to convert JIU image objects to other image types that require more memory.
+This is a lossless operation, all information is kept.
+However, the new image object typically requires more memory to store the same information.
+A promotion operation is necessary if a certain operation cannot be performed on
+a <q>smaller</q> image type, but once the image has been promoted to a <q>larger</q>
+type, the operation becomes possible.
+<p>
+Example: Convolution kernel filtering cannot be applied to paletted images.
+They require intensity information on each pixel.
+Once a paletted image has been promoted to be an RGB truecolor image,
+filtering is possible.
+
+<!-- Put @see and @since tags down here. -->
+
+</body>
+</html>

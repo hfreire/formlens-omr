@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+<p>
+Provides classes to read images from and save them to files (or streams) in various file formats.
+In some cases, it will be sufficient for codecs to use
+{@link java.io.InputStream} and {@link java.io.OutputStream}.
+This approach should be picked when possible, as it allows for maximum
+flexibility--input and output streams can be files, network streams,
+standard input / output (so that data can be piped on the command line)
+and more.
+However, in some cases, it will be necessary for codecs to use 
+{@link java.io.RandomAccessFile} in order to seek to various places in
+the file.
+</p>
+<p>
+<em>Note that the codecs are (sometimes more, sometimes less) far from being 
+finished or even stable.
+Please do not rely on them for important data.
+Treat the codecs (and the rest of JIU) as beta software.</em>
+</p>
+
+<h2>Package Specification</h2>
+
+<p>
+All image codecs must extend the {@link net.sourceforge.jiu.codecs.ImageCodec} class.
+They may support only a subset of all possible flavors of an image file format.
+As an example, they may choose to support only reading or only writing.
+As {@link net.sourceforge.jiu.codecs.ImageCodec} extends {@link net.sourceforge.jiu.ops.Operation},
+the progress notification system can (and should) be used.
+If the codecs are used
+in GUI (graphical user interface) applications, users could be shown a
+progress bar--loading and saving can be time-consuming.
+</p>
+<p>
+{@link net.sourceforge.jiu.codecs.ImageCodec} provides methods to specify
+a rectangular part of an image.
+The information should be used by the codec to read or write only that part of the image.
+That way, loading only a part of a huge image is typically faster and consumes less
+memory.
+When saving a part of a huge image, an additional crop operation becomes unncessary this way.
+</p>
+
+<h2>Related Documentation</h2>
+
+<p>
+Obviously, JIU can only benefit from supporting more file formats.
+If you want to contribute codecs to JIU (remember that you must provide your
+code under the GNU General Public License), please contact the maintainer
+at <a target="_top" href="http://schmidt.devlib.org/jiu/">the JIU website</a>.
+</p>
+<p>
+However, note that no code will be integrated that uses patented algorithms.
+For better or worse, algorithms like LZW compression (used optionally in TIFF 
+and mandatory in GIF) or arithmetic entropy coding (used in some parts of JPEG) 
+are patented in several countries.
+In order to use these algorithms, one has to pay license fees.
+This is not acceptable for JIU and therefore no code will be integrated
+that uses such algorithms.
+In cases like GIF or TIFF/LZW that is very unfortunate because these formats
+a certain popularity that would make them interesting to support.
+Read the <a target="_top" href="http://dmoz.org/Computers/Data_Formats/Graphics/2D/GIF/">GIF
+section</a> of the Open Directory, it contains several links to sites that
+explain the situation (from different points of view).
+</p>
+<p>
+File format specifications can be found at the following resources:
+</p>
+<ul>
+  <li><a target="_top" href="http://www.wotsit.org">Wotsit.org</a>, one of the biggest repositories for file format specifications</li>
+  <li><a target="_top" href="http://dmoz.org/Computers/Data_Formats/">Open Directory</a>, section on data formats</li>
+</ul>
+
+<!-- Put @see and @since tags down here. -->
+
+</body>
+</html>

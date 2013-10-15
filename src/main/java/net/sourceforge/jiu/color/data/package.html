@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+<p>
+Provides classes to store images and data directly related to them.
+</p>
+
+<h2>Package Specification</h2>
+
+<p>
+The base interface for image data in JIU is {@link net.sourceforge.jiu.data.PixelImage}.
+The concept of a pixel image includes the following properties:
+</p>
+<ul>
+<li>The image data is arranged as a rectangular grid of pixels.
+ The image has a fixed number of columns (width) and rows (height).
+ Width and height can be queried using the method getWidth and getHeight.</li>
+<li>Each pixel is made up of one or more samples.
+ The exact number of samples per pixel equals the number of channels.
+ Nothing is said about the nature of the samples (e. g., their type)
+ and no ways to access samples or pixels are provided in the PixelImage interface.</li>
+<li>A class implementing PixelImage must provide the createCompatibleImage method
+ which gets a width and a height value as parameters and must return a new object
+ of the same class with that pixel resolution.</li>
+<li>Helper methods in PixelImage include ways to get a textual description of the 
+ type and the number of bytes allocated for a specific object implementing PixelImage.</li>
+</ul>
+
+<p>
+The interface {@link net.sourceforge.jiu.data.IntegerImage} extends the 
+{@link net.sourceforge.jiu.data.PixelImage} interface.
+All sample values belonging to an object of a class implementing IntegerImage 
+are supposed to be integer values that can be stored in an <code>int</code>
+value (a signed 32 bit value).
+</p>
+
+<h2>Related Documentation</h2>
+
+<p>
+</p>
+
+<!-- Put @see and @since tags down here. -->
+
+</body>
+</html>

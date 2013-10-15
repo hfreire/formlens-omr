@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+<p>
+Classes to perform color image quantization, the reduction of the number of unique
+colors in an image.
+This is a lossy operation.
+Usually a number of colors in the destination image is specified by the user (e.g. 256),
+then the quantization algorithm creates a copy of the input image that has no
+more than that number of colors.
+The goal is to be as close to the original as possible.
+Depending on the actual number of colors specified and the image content
+this can lead to varying results.
+<p>
+Quantization is usually done to reduce the amount of data necessary to represent
+the image.
+The cost for this reduction is a loss of information.
+<p>
+See <a href="../dithering/package-summary.html">the dithering package</a>
+for algorithms that improve the result of color image quantization algorithms.
+
+<!-- Put @see and @since tags down here. -->
+
+</body>
+</html>
